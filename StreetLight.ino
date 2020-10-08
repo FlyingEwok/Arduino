@@ -1,151 +1,135 @@
-int a = 12;                     // initialization of the variables that will be the values of the pin
-
-int b = 13;
-
-int c = 8;
-
-int d = 9;
-
-int e = 10;
-
-int f = 11;
-
-int g = 7;
-
 void setup()
-
 {
+  pinMode(4, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(2, OUTPUT);
+  pinMode(13, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(10, OUTPUT);
+}
 
-  pinMode(a, OUTPUT);          // initialization of the arduino OUTPUT pins
-
-  pinMode(b, OUTPUT);
-
-  pinMode(c, OUTPUT);
-
-  pinMode(d, OUTPUT);
-
-  pinMode(e, OUTPUT);
-
-  pinMode(f, OUTPUT);
-
-  pinMode(g, OUTPUT);
-
+void loop()
+{
+  int t = 1000;
+  //int n = 1;
+  int time = 0;
   
-
-}
-
-void nine_dig() {             // function called nine_dig: this function will display the digit 9 
-
-  digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
-  digitalWrite(b,LOW);
-  digitalWrite(c,LOW);
-  digitalWrite(d,HIGH);         //to turn a pin off, it has to have a HIGH digitalWrite
-  digitalWrite(e,HIGH);
-  digitalWrite(f,LOW);
-  digitalWrite(g,LOW);
-
+   for(time = 0 ; 0 <= time <= 10000 ; )
+    {
+      digitalWrite(13, HIGH);
+      digitalWrite(2, HIGH);
+      delay(500);
+      digitalWrite(2, LOW);
+      delay(500);
+      time = time + 1000;
+     
+      if(time >= 10000)
+      {
+      	break;
+      }  
+    }
+  
+  for(time = 10000  ; 0 <= time < 30000 ; delay(t))
+  {
+    digitalWrite(4, HIGH);
+    digitalWrite(2, HIGH);
+    time = time + 1000;
+    
+    if(time > 30000)
+     {
+       break;
+     }
+  }
+  
+  delay(80000);
+  time = 0;
+    
+  	for(time = 0 ; 0 <= time <= 10000 ; )
+    {
+      digitalWrite(4, LOW);
+      delay(500);
+      digitalWrite(4, HIGH);
+      delay(500);
+      time = time + 1000;
+     
+     if(time >= 10000)
+     {
+       break;
+     }
+      
+    }
+  
+  	
+  digitalWrite(2, LOW);
+  digitalWrite(4, LOW);
+  
+  digitalWrite(3, HIGH);
+  delay(5000); // Wait for 5000 millisecond(s)
+  
+  digitalWrite(3, LOW);
+  digitalWrite(8, HIGH);
   delay(1000);
-
-  digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
-  digitalWrite(b,LOW);
-  digitalWrite(c,LOW);
-  digitalWrite(d,LOW);         //to turn a pin off, it has to have a HIGH digitalWrite
-  digitalWrite(e,LOW);
-  digitalWrite(f,LOW);
-  digitalWrite(g,LOW); 
-
+  
+  digitalWrite(13, LOW);
+  
+  //Reset time variable
+  time = 0;
+  
+   for(time = 0 ; 0 <= time <= 10000 ; )
+    {
+      digitalWrite(11, HIGH);
+      delay(500);
+      digitalWrite(11, LOW);
+      delay(500);
+      time = time + 1000;
+     
+      if(time >= 10000)
+      {
+      	break;
+      }  
+    }
+  
+  for(time = 10000  ; 0 <= time < 30000 ; delay(t))
+  {
+    digitalWrite(10, HIGH);
+    digitalWrite(11, HIGH);
+    time = time + 1000;
+    
+    if(time > 30000)
+     {
+       break;
+     }
+  }
+  
+  delay(80000);
+  time = 0;
+    
+  	for(time = 0 ; 0 <= time <= 10000 ; )
+    {
+      digitalWrite(10, LOW);
+      delay(500);
+      digitalWrite(10, HIGH);
+      delay(500);
+      time = time + 1000;
+     
+     if(time >= 10000)
+     {
+       break;
+     }
+      
+    }
+  
+  digitalWrite(10, LOW);
+  digitalWrite(11, LOW);
+  
+  digitalWrite(12, HIGH);
+  delay(5000); // Wait for 5000 millisecond(s)
+  
+  digitalWrite(12, LOW);
+  digitalWrite(13, HIGH);
+  
   delay(1000);
-
-  digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
-  digitalWrite(b,LOW);
-  digitalWrite(c,LOW);
-  digitalWrite(d,HIGH);         //to turn a pin off, it has to have a HIGH digitalWrite
-  digitalWrite(e,HIGH);
-  digitalWrite(f,HIGH);
-  digitalWrite(g,HIGH);
-
-  delay(1000);
-
-  digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
-  digitalWrite(b,HIGH);
-  digitalWrite(c,LOW);
-  digitalWrite(d,LOW);         //to turn a pin off, it has to have a HIGH digitalWrite
-  digitalWrite(e,LOW);
-  digitalWrite(f,LOW);
-  digitalWrite(g,LOW); 
-
-  delay(1000);
-
-  digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
-  digitalWrite(b,HIGH);
-  digitalWrite(c,LOW);
-  digitalWrite(d,LOW);         //to turn a pin off, it has to have a HIGH digitalWrite
-  digitalWrite(e,HIGH);
-  digitalWrite(f,LOW);
-  digitalWrite(g,LOW);
-
-  delay(1000);
-
-  digitalWrite(a,HIGH);          //to turn a pin on, it has to have a LOW digitalWrite
-  digitalWrite(b,LOW);
-  digitalWrite(c,LOW);
-  digitalWrite(d,HIGH);         //to turn a pin off, it has to have a HIGH digitalWrite
-  digitalWrite(e,HIGH);
-  digitalWrite(f,LOW);
-  digitalWrite(g,LOW); 
-
-  delay(1000);
-
-  digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
-  digitalWrite(b,LOW);
-  digitalWrite(c,LOW);
-  digitalWrite(d,LOW);         //to turn a pin off, it has to have a HIGH digitalWrite
-  digitalWrite(e,HIGH);
-  digitalWrite(f,HIGH);
-  digitalWrite(g,LOW); 
-
-  delay(1000);
-
-  digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
-  digitalWrite(b,LOW);
-  digitalWrite(c,HIGH);
-  digitalWrite(d,LOW);         //to turn a pin off, it has to have a HIGH digitalWrite
-  digitalWrite(e,LOW);
-  digitalWrite(f,HIGH);
-  digitalWrite(g,LOW); 
-
-  delay(1000);
-
-  digitalWrite(a,HIGH);          //to turn a pin on, it has to have a LOW digitalWrite
-  digitalWrite(b,LOW);
-  digitalWrite(c,LOW);
-  digitalWrite(d,HIGH);         //to turn a pin off, it has to have a HIGH digitalWrite
-  digitalWrite(e,HIGH);
-  digitalWrite(f,HIGH);
-  digitalWrite(g,HIGH); 
-
-  delay(1000);
-
-  digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
-  digitalWrite(b,LOW);
-  digitalWrite(c,LOW);
-  digitalWrite(d,LOW);         //to turn a pin off, it has to have a HIGH digitalWrite
-  digitalWrite(e,LOW);
-  digitalWrite(f,LOW);
-  digitalWrite(g,HIGH); 
-
-  delay(1000);
-   
-}
-
-
-
-void loop()         
-
-{
-
-  nine_dig();             //call a function and print the digit 9
-
- 
-
+  digitalWrite(8, LOW);
 }
