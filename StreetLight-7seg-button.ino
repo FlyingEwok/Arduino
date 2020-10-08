@@ -1,30 +1,23 @@
-// Code: 
-
-int buttonPress = 0;      //inital setup
-
+//inital setup
+int buttonPress = 0;     
 int button = 2;
-
 int state = 0;
-
 int old = 0;
 
+// initialization of the variables that will be the values of the pin
 //7 segement pins
-int a = 12;                     // initialization of the variables that will be the values of the pin
-
+int a = 12;                     
 int b = 13;
-
 int c = 8;
-
 int d = 9;
-
 int e = 10;
-
 int f = 11;
-
 int g = 7;
 
-
-
+//Street lights pins
+int green = 3;
+int yellow = 4;
+int red = 5;
 
 void setup()
 
@@ -32,7 +25,7 @@ void setup()
 
   pinMode(button,INPUT);
 
-  pinMode(9,OUTPUT);
+  pinMode(6,OUTPUT);
 
   pinMode(a, OUTPUT);          // initialization of the arduino OUTPUT pins
 
