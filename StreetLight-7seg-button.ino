@@ -56,7 +56,7 @@ void nine_dig()
   digitalWrite(g,LOW);
 }
 
-void eight-dig()
+void eight_dig()
 {
   digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
   digitalWrite(b,LOW);
@@ -67,7 +67,7 @@ void eight-dig()
   digitalWrite(g,LOW); 
 }
 
-void seven-dig()
+void seven_dig()
 {
   digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
   digitalWrite(b,LOW);
@@ -78,7 +78,7 @@ void seven-dig()
   digitalWrite(g,HIGH);
 }
 
-void six-dig()
+void six_dig()
 {
   digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
   digitalWrite(b,HIGH);
@@ -89,7 +89,7 @@ void six-dig()
   digitalWrite(g,LOW); 
 }
 
-void five-dig()
+void five_dig()
 {
   digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
   digitalWrite(b,HIGH);
@@ -100,7 +100,7 @@ void five-dig()
   digitalWrite(g,LOW);
 }
 
-void four-dig()
+void four_dig()
 {
   digitalWrite(a,HIGH);          //to turn a pin on, it has to have a LOW digitalWrite
   digitalWrite(b,LOW);
@@ -111,7 +111,7 @@ void four-dig()
   digitalWrite(g,LOW); 
 }
 
-void three-dig()
+void three_dig()
 {
   digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
   digitalWrite(b,LOW);
@@ -122,7 +122,7 @@ void three-dig()
   digitalWrite(g,LOW); 
 }
 
-void two-dig()
+void two_dig()
 {
   digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
   digitalWrite(b,LOW);
@@ -133,7 +133,7 @@ void two-dig()
   digitalWrite(g,LOW); 
 }
 
-void one-dig()
+void one_dig()
 {
   digitalWrite(a,HIGH);          //to turn a pin on, it has to have a LOW digitalWrite
   digitalWrite(b,LOW);
@@ -144,7 +144,7 @@ void one-dig()
   digitalWrite(g,HIGH); 
 }
 
-void zero-dig()
+void zero_dig()
 {
   digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
   digitalWrite(b,LOW);
