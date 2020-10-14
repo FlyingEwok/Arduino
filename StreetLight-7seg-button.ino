@@ -22,26 +22,21 @@ int red = 5;
 void setup()
 
 {
-
+  // initialization of the arduino OUTPUT pins
   pinMode(button,INPUT);
-
   pinMode(6,OUTPUT);
 
-  pinMode(a, OUTPUT);          // initialization of the arduino OUTPUT pins
-
+  pinMode(a, OUTPUT);          
   pinMode(b, OUTPUT);
-
   pinMode(c, OUTPUT);
-
   pinMode(d, OUTPUT);
-
   pinMode(e, OUTPUT);
-
   pinMode(f, OUTPUT);
-
   pinMode(g, OUTPUT);
-  
 
+  pinMode(green, OUTPUT);
+  pinMode(yellow, OUTPUT);
+  pinMode(red, OUTPUT);  
 }
 
 //Intialize 7 segment display functions
@@ -162,63 +157,84 @@ void loop()
   buttonPress = digitalRead(button);
 
   if(buttonPress == 1){
-
     delay(50);
-
     buttonPress = digitalRead(button);
 
     if (buttonPress == 0 ) {
-
-      state = old + 1;
- 
+      state = old + 1; 
     }}
 
    else{
-
-    delay(100);
-
-     
-
-
-
+    delay(100); 
 }
-
 
 
   switch (state) {
 
     case 1:
+      //regular cycle
+      digitalWrite(green, HIGH);
+      delay(110000);
+      
+      nine_dig();
+      delay(1000);
+      eight_dig();
+      delay(1000);
+      seven_dig();
+      delay(1000);
+      six_dig();
+      delay(1000);
+      five_dig();
+      delay(1000);
+      four_dig();
+      delay(1000);
+      three_dig();
+      delay(1000);
+      two_dig();
+      delay(1000);
+      one_dig();
+      delay(1000);
+      zero_dig();
+      delay(1000);
 
-      digitalWrite(9,LOW);
+      digitalWrite(yellow, HIGH);
+      digitalWrite(green, LOW);
+      delay(5000);
+
+      digitalWrite(red, HIGH);
+      digitalWrite(yellow, LOW);      
 
       old = state;
-
       break;
 
     case 2:
 
       digitalWrite(9,HIGH);
-
       old = state;
-
       break;
 
     case 3:
 
       digitalWrite(9,LOW);
-
       old = state;
-
       break;
 
     default:
 
-      digitalWrite(9,HIGH);
+      //Everything off
+      digitalWrite(a, HIGH);
+      digitalWrite(b, HIGH);
+      digitalWrite(c, HIGH);
+      digitalWrite(d, HIGH);
+      digitalWrite(e, HIGH);
+      digitalWrite(f, HIGH);
+      digitalWrite(g, HIGH);
+      digitalWrite(green, LOW);
+      digitalWrite(yellow, LOW);
+      digitalWrite(red, LOW);
 
       old = 0;
-
       break;
-
   }
 
 }

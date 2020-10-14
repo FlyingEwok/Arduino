@@ -1,6 +1,6 @@
 {
-    "programmer": "AVRISP mkII",
     "board": "arduino:avr:uno",
-    "sketch": "StreetLight-7seg-button.ino",
-    "port":  "/dev/ttyS0"
+    "programmer": "AVR ISP",
+    "port": "/dev/ttyUSB0",
+    "sketch": "StreetLight-7seg-button.ino"
 }
