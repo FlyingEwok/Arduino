@@ -174,6 +174,7 @@ void loop()
     case 1:
       //regular cycle
       digitalWrite(green, HIGH);
+      digitalWrite(red, LOW);
       delay(110000);
       
       nine_dig();
@@ -197,19 +198,23 @@ void loop()
       zero_dig();
       delay(1000);
 
-      digitalWrite(yellow, HIGH);
       digitalWrite(green, LOW);
+      digitalWrite(yellow, HIGH);      
       delay(5000);
 
+      digitalWrite(yellow, LOW);
       digitalWrite(red, HIGH);
-      digitalWrite(yellow, LOW);      
+      delay(120000);            
 
       old = state;
       break;
 
     case 2:
 
-      digitalWrite(9,HIGH);
+      digitalWrite(red,HIGH);
+      delay(500);
+      digitalWrite(red, LOW);
+
       old = state;
       break;
 
