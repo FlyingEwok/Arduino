@@ -2,5 +2,5 @@
     "board": "arduino:avr:uno",
     "programmer": "AVR ISP",
     "port": "/dev/ttyUSB0",
-    "sketch": "StreetLight-7seg-button.ino"
+    "sketch": "StreetLight-7seg-button/StreetLight-7seg-button.ino"
 }
