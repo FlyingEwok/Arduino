@@ -217,7 +217,7 @@ void outputSevenSegState(int sevenSegState)
 
 
 unsigned long countDownTimerDuration = 10000;
-unsigned long redLightDuration = 20000;
+unsigned long redLightDuration = 120000;
 unsigned long greenLightDuration = redLightDuration - countDownTimerDuration;
 unsigned long yellowLightDuration = 5000;
 unsigned long advancedGreenLightDuration = 10000;
