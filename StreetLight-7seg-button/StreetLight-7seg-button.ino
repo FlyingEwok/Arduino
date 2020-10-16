@@ -37,7 +37,7 @@ void setup()
   pinMode(red, OUTPUT);  
 }
 
-//Intialize 7 segment display functions
+//Intialize functions
 void nine_dig()
 {
   digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
@@ -215,7 +215,7 @@ void outputSevenSegState(int sevenSegState)
 }
 
 
-
+// Intialize variables
 unsigned long countDownTimerDuration = 10000;
 unsigned long redLightDuration = 120000;
 unsigned long greenLightDuration = redLightDuration - countDownTimerDuration;
