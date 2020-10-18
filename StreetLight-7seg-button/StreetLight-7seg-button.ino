@@ -257,6 +257,7 @@ void reset()
   greenLightState = OFF;
   yellowLightState = OFF;
   redLightState = OFF;
+  walkLightState = OFF;
   advancedGreenLightState = OFF;
 
   nextCountIntitated = 0;
