@@ -250,6 +250,7 @@ unsigned long lightFlashInitiated = 0;
 int lastLoopMode = 0;
 int currentLoopMode = 1;
 
+// set everything back to what it was at the start
 void reset()
 {
   sevenSegOffState = -1;
@@ -268,11 +269,13 @@ void reset()
   lightFlashInitiated = 0;
 }
 
+// everything off mode
 void mode1()
 {
   reset();
 }
 
+// street light setup mode 
 void mode2(unsigned long currentTime)
 {
   // intialization code
