@@ -18,6 +18,7 @@ int g = 7;
 int green = 3;
 int yellow = 4;
 int red = 5;
+int walkLight = 6;
 
 void setup()
 {    
@@ -35,15 +36,16 @@ void setup()
   pinMode(green, OUTPUT);
   pinMode(yellow, OUTPUT);
   pinMode(red, OUTPUT);  
+  pinMode(walkLight, OUTPUT);
 }
 
-//Intialize functions
+//Intialize seven segement digits
 void nine_dig()
 {
-  digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
+  digitalWrite(a,LOW);          
   digitalWrite(b,LOW);
   digitalWrite(c,LOW);
-  digitalWrite(d,HIGH);         //to turn a pin off, it has to have a HIGH digitalWrite
+  digitalWrite(d,HIGH);        
   digitalWrite(e,HIGH);
   digitalWrite(f,LOW);
   digitalWrite(g,LOW);
@@ -51,10 +53,10 @@ void nine_dig()
 
 void eight_dig()
 {
-  digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
+  digitalWrite(a,LOW);          
   digitalWrite(b,LOW);
   digitalWrite(c,LOW);
-  digitalWrite(d,LOW);         //to turn a pin off, it has to have a HIGH digitalWrite
+  digitalWrite(d,LOW);        
   digitalWrite(e,LOW);
   digitalWrite(f,LOW);
   digitalWrite(g,LOW); 
@@ -62,10 +64,10 @@ void eight_dig()
 
 void seven_dig()
 {
-  digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
+  digitalWrite(a,LOW);        
   digitalWrite(b,LOW);
   digitalWrite(c,LOW);
-  digitalWrite(d,HIGH);         //to turn a pin off, it has to have a HIGH digitalWrite
+  digitalWrite(d,HIGH);       
   digitalWrite(e,HIGH);
   digitalWrite(f,HIGH);
   digitalWrite(g,HIGH);
@@ -73,10 +75,10 @@ void seven_dig()
 
 void six_dig()
 {
-  digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
+  digitalWrite(a,LOW);          
   digitalWrite(b,HIGH);
   digitalWrite(c,LOW);
-  digitalWrite(d,LOW);         //to turn a pin off, it has to have a HIGH digitalWrite
+  digitalWrite(d,LOW);         
   digitalWrite(e,LOW);
   digitalWrite(f,LOW);
   digitalWrite(g,LOW); 
@@ -84,10 +86,10 @@ void six_dig()
 
 void five_dig()
 {
-  digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
+  digitalWrite(a,LOW);          
   digitalWrite(b,HIGH);
   digitalWrite(c,LOW);
-  digitalWrite(d,LOW);         //to turn a pin off, it has to have a HIGH digitalWrite
+  digitalWrite(d,LOW);         
   digitalWrite(e,HIGH);
   digitalWrite(f,LOW);
   digitalWrite(g,LOW);
@@ -95,10 +97,10 @@ void five_dig()
 
 void four_dig()
 {
-  digitalWrite(a,HIGH);          //to turn a pin on, it has to have a LOW digitalWrite
+  digitalWrite(a,HIGH);          
   digitalWrite(b,LOW);
   digitalWrite(c,LOW);
-  digitalWrite(d,HIGH);         //to turn a pin off, it has to have a HIGH digitalWrite
+  digitalWrite(d,HIGH);         
   digitalWrite(e,HIGH);
   digitalWrite(f,LOW);
   digitalWrite(g,LOW); 
@@ -106,10 +108,10 @@ void four_dig()
 
 void three_dig()
 {
-  digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
+  digitalWrite(a,LOW);          
   digitalWrite(b,LOW);
   digitalWrite(c,LOW);
-  digitalWrite(d,LOW);         //to turn a pin off, it has to have a HIGH digitalWrite
+  digitalWrite(d,LOW);         
   digitalWrite(e,HIGH);
   digitalWrite(f,HIGH);
   digitalWrite(g,LOW); 
@@ -117,10 +119,10 @@ void three_dig()
 
 void two_dig()
 {
-  digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
+  digitalWrite(a,LOW);          
   digitalWrite(b,LOW);
   digitalWrite(c,HIGH);
-  digitalWrite(d,LOW);         //to turn a pin off, it has to have a HIGH digitalWrite
+  digitalWrite(d,LOW);         
   digitalWrite(e,LOW);
   digitalWrite(f,HIGH);
   digitalWrite(g,LOW); 
@@ -128,10 +130,10 @@ void two_dig()
 
 void one_dig()
 {
-  digitalWrite(a,HIGH);          //to turn a pin on, it has to have a LOW digitalWrite
+  digitalWrite(a,HIGH);          
   digitalWrite(b,LOW);
   digitalWrite(c,LOW);
-  digitalWrite(d,HIGH);         //to turn a pin off, it has to have a HIGH digitalWrite
+  digitalWrite(d,HIGH);         
   digitalWrite(e,HIGH);
   digitalWrite(f,HIGH);
   digitalWrite(g,HIGH); 
@@ -139,10 +141,10 @@ void one_dig()
 
 void zero_dig()
 {
-  digitalWrite(a,LOW);          //to turn a pin on, it has to have a LOW digitalWrite
+  digitalWrite(a,LOW);          
   digitalWrite(b,LOW);
   digitalWrite(c,LOW);
-  digitalWrite(d,LOW);         //to turn a pin off, it has to have a HIGH digitalWrite
+  digitalWrite(d,LOW);         
   digitalWrite(e,LOW);
   digitalWrite(f,LOW);
   digitalWrite(g,HIGH); 
@@ -158,6 +160,7 @@ void off_dig()
   digitalWrite(g,HIGH); 
 }
 
+// determines the lights state to easily turn it on and off
 void lightState(int light, int lightState)
 {
   switch (lightState)
@@ -174,6 +177,7 @@ void lightState(int light, int lightState)
   }
 }
 
+// Seven segemnt display countdown
 void outputSevenSegState(int sevenSegState)
 {
   switch (sevenSegState)
@@ -217,7 +221,7 @@ void outputSevenSegState(int sevenSegState)
 
 // Intialize variables
 unsigned long countDownTimerDuration = 10000;
-unsigned long redLightDuration = 120000;
+unsigned long redLightDuration = 20000;
 unsigned long greenLightDuration = redLightDuration - countDownTimerDuration;
 unsigned long yellowLightDuration = 5000;
 unsigned long advancedGreenLightDuration = 10000;
@@ -233,6 +237,7 @@ int sevenSegState = sevenSegOffState;
 int greenLightState = OFF;
 int yellowLightState = OFF;
 int redLightState = OFF;
+int walkLightState = OFF;
 int advancedGreenLightState = OFF;
 
 unsigned long nextCountIntitated = 0;
@@ -275,7 +280,6 @@ void mode2(unsigned long currentTime)
     reset();      
     advancedGreenLightState = ON;
     advancedGreenLightInitiated = currentTime;
-    //lightFlashInitiated = currentTime;
     sevenSegState = sevenSegOffState;
   }
 
@@ -287,8 +291,11 @@ void mode2(unsigned long currentTime)
     
     if (sevenSegState < sevenSegOffState)
     {
+      walkLightState = OFF;
       sevenSegState = 9;
     }
+ 
+    
     // State exit condition
     else if (sevenSegState == sevenSegOffState)
     {
@@ -334,6 +341,7 @@ void mode2(unsigned long currentTime)
     if ((currentTime - advancedGreenLightInitiated) >= advancedGreenLightDuration && advancedGreenLightInitiated != 0)
     {
       advancedGreenLightState = OFF;
+      walkLightState = ON;
       advancedGreenLightInitiated = 0;
       greenLightState = ON;
       walkCountdownInitiated = currentTime;
@@ -342,15 +350,18 @@ void mode2(unsigned long currentTime)
   }
 }
 
+// base flashlight code to apply to any light
 void flashLight(int* lightState, unsigned int currentTime)
 {
   if ((currentTime - lightFlashInitiated) >= lightFlashDuration)
   {
-    *lightState = *lightState == OFF ? ON : OFF;
+    // checks if light state is off if it is turn it on, otherwise turn it off.
+    *lightState = *lightState == OFF ? ON : OFF; // This is a Ternary Operator
     lightFlashInitiated = currentTime;
   }
 }
 
+// mode 4 flashing yellow
 void mode4(unsigned int currentTime)
 {
   if (lastLoopMode != currentLoopMode)
@@ -361,6 +372,7 @@ void mode4(unsigned int currentTime)
   flashLight(&yellowLightState, currentTime);
 }
 
+// mode 3 flashing red
 void mode3(unsigned int currentTime)
 {
   if (lastLoopMode != currentLoopMode)
@@ -373,8 +385,10 @@ void mode3(unsigned int currentTime)
 
 void loop()
 {  
+  // Use cpu clock time as a time reference
   unsigned long currentTime = millis();
 
+  // button press action
   buttonPress = digitalRead(button);
   if(buttonPress == 1)
   {
@@ -384,10 +398,12 @@ void loop()
     if (buttonPress == 0 )
     {
       currentLoopMode++;
-      currentLoopMode = currentLoopMode > 4 ? 1 : currentLoopMode;    
+      // Checks if loop mode is greater than 4 and if it is set it to 1 otherwise its currentLoopMode
+      currentLoopMode = currentLoopMode > 4 ? 1 : currentLoopMode;    // This is a Ternary Operator
     }
   }
   
+  // switch between each case which is each mode if button is pressed
   switch (currentLoopMode)
   {
     case 1:
@@ -410,6 +426,7 @@ void loop()
   lightState(green, greenLightState);
   lightState(yellow, yellowLightState);
   lightState(red, redLightState);
+  lightState(walkLight, walkLightState);
   outputSevenSegState(sevenSegState);
 
   // track loop mode between loops
