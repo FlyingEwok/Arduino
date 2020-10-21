@@ -160,21 +160,21 @@ void off_dig()
   digitalWrite(g,HIGH); 
 }
 
-// determines the lights state to easily turn it on and off
+// output the lights state to easily turn it on and off
 void lightState(int light, int lightState)
-{
+{ 
   switch (lightState)
-  {
+  {   
     case 0:
       digitalWrite(light, LOW);
-      break;
-    
+      break;      
     case 1:
       digitalWrite(light,HIGH);
+      break;
     default:
       digitalWrite(light, LOW);
       break;
-  }
+  }    
 }
 
 // Seven segemnt display countdown
