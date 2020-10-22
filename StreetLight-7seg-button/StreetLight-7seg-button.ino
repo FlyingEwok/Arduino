@@ -435,5 +435,4 @@ void loop()
 
   // track loop mode between loops
   lastLoopMode = currentLoopMode;
-
 }
